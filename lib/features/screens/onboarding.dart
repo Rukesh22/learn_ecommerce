@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_ecommerce/features/onboarding/onboarding_controller.dart';
+import 'package:learn_ecommerce/features/controllers/onboarding/onboarding_controller.dart';
 import 'package:learn_ecommerce/utils/constants/colors.dart';
 import 'package:learn_ecommerce/utils/constants/image_strings.dart';
 import 'package:learn_ecommerce/utils/constants/text_strings.dart';

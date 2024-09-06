@@ -6,7 +6,7 @@ import 'package:learn_ecommerce/common/widgets/home_widgets/curved_edges.dart';
 import 'package:learn_ecommerce/common/widgets/home_widgets/profuctcard.dart';
 import 'package:learn_ecommerce/common/widgets/layout/gridview.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_sectionheading.dart';
-import 'package:learn_ecommerce/features/homecontroller/home_controller.dart';
+import 'package:learn_ecommerce/features/controllers/homecontroller/home_controller.dart';
 import 'package:learn_ecommerce/features/screens/all_products/all_products.dart';
 import 'package:learn_ecommerce/features/screens/cart/cartScreen.dart';
 import 'package:learn_ecommerce/features/screens/subcategories/sub_categories.dart';

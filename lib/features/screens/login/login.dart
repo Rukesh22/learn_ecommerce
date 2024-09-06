@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:learn_ecommerce/common/styles/space_styles.dart';
-import 'package:learn_ecommerce/features/screens/signup/signup.dart';
-import 'package:learn_ecommerce/navigation_menu.dart';
+import 'package:learn_ecommerce/features/screens/login/login_form.dart';
 import 'package:learn_ecommerce/utils/constants/colors.dart';
 import 'package:learn_ecommerce/utils/constants/image_strings.dart';
 import 'package:learn_ecommerce/utils/constants/sizes.dart';
 import 'package:learn_ecommerce/utils/constants/text_strings.dart';
 import 'package:learn_ecommerce/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 
 
 class LoginScreen extends StatelessWidget {
@@ -40,62 +38,7 @@ class LoginScreen extends StatelessWidget {
               ),
 
               //Form
-              Form(
-                  child: Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: TSizes.spaceBtwSections),
-                child: Column(
-                  children: [
-                    //Email
-                    TextFormField(
-                      decoration: const InputDecoration(prefixIcon: Icon(Iconsax.direct_right), labelText: TTexts.email),
-                    ),
-                    const SizedBox(height: TSizes.spaceBtwInputFields),
-
-                    //password
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        prefixIcon: Icon(Iconsax.password_check),
-                        labelText: TTexts.password,
-                        suffixIcon: Icon(Iconsax.eye_slash),
-                      ),
-                    ),
-                    const SizedBox(height: TSizes.spaceBtwInputFields / 2),
-
-                    //Remember me & Forget Password
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Checkbox(value: true, onChanged: (value) {}),
-                            const Text(TTexts.rememberMe),
-                          ],
-                        ),
-                        TextButton(
-                            onPressed: () {},
-                            child: const Text(TTexts.forgetPassword)),
-                      ],
-                    ),
-                    const SizedBox(height: TSizes.spaceBtwSections),
-
-                    //signin button
-                    SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                            onPressed: () => Get.to(() => const NavigationMenu()),
-                            child: const Text(TTexts.signIn))),
-                    const SizedBox(height: TSizes.spaceBtwItems),
-
-                    //create acount btn
-                    SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                            onPressed: () => Get.to(() => const SignupScreen()),
-                            child: const Text(TTexts.createAccount))),
-                  ],
-                ),
-              )),
+              const TLoginForm(),
 
               //Divider
               Row(
