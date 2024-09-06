@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_ecommerce/features/controllers.onboarding/onboarding_controller.dart';
+import 'package:learn_ecommerce/features/onboarding/onboarding_controller.dart';
 import 'package:learn_ecommerce/utils/constants/colors.dart';
 import 'package:learn_ecommerce/utils/constants/image_strings.dart';
 import 'package:learn_ecommerce/utils/constants/text_strings.dart';
@@ -75,7 +75,7 @@ class OnBoardingScreen extends StatelessWidget {
               onPressed: () => OnboardingController.instance.nextPage(),
               style: ElevatedButton.styleFrom(
                   shape: const CircleBorder(), backgroundColor: dark ? TColors.primary: Colors.black),
-              child: const Icon(Iconsax.arrow_right3),
+              child: const Icon(Iconsax.arrow_right4,),
             ),
           ),
 
