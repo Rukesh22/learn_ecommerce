@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:learn_ecommerce/common/widgets/home_widgets/appbar.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_circularimage.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_sectionheading.dart';
-import 'package:learn_ecommerce/features/screens/login/login.dart';
+import 'package:learn_ecommerce/data/repositories/autentication_repository.dart';
 import 'package:learn_ecommerce/utils/constants/image_strings.dart';
 import 'package:learn_ecommerce/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
@@ -14,6 +13,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: const TAppBar(
         showBackArrow: true,
         title: Text('Profile')
@@ -64,7 +64,7 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: TSizes.spaceBtwItems),
 
             Center(
-              child: TextButton(onPressed: () => Get.to(() => const LoginScreen()), child: const Text('Close Account', style: TextStyle(color: Colors.red))),
+              child: TextButton(onPressed: () => AutenticationRepository.instance.logout(), child: const Text('Close Account', style: TextStyle(color: Colors.red))),
             )
             
           ],

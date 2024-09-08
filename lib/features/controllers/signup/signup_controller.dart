@@ -5,6 +5,7 @@ import 'package:learn_ecommerce/data/repositories/autentication_repository.dart'
 import 'package:learn_ecommerce/data/repositories/user_repository.dart';
 import 'package:learn_ecommerce/features/screens/signup/verify_email.dart';
 import 'package:learn_ecommerce/utils/constants/colors.dart';
+import 'package:learn_ecommerce/utils/constants/image_strings.dart';
 import 'package:learn_ecommerce/utils/constants/sizes.dart';
 import 'package:learn_ecommerce/utils/helpers/helper_functions.dart';
 import 'package:learn_ecommerce/utils/helpers/network_manager.dart';
@@ -29,7 +30,7 @@ class SignupController extends GetxController {
   void signup() async {
     try {
 
-      TFullScreenLoader.openLoadingDialog('We are');
+      TFullScreenLoader.openLoadingDialog('We are', TImages.docerAnimation);
 
 
     //Check Internet Connectivity
@@ -96,7 +97,7 @@ class SignupController extends GetxController {
 
 class TFullScreenLoader {
 
-  static void openLoadingDialog(String text) {
+  static void openLoadingDialog(String text, String animation) {
     showDialog(
       context: Get.overlayContext!,
       barrierDismissible: false,
@@ -106,7 +107,12 @@ class TFullScreenLoader {
           color: THelperFunctions.isDarkMode(Get.context!) ? TColors.dark : TColors.white,
           width: double.infinity,
           height: double.infinity,
-          
+          child: Column(
+            children: [
+              const SizedBox(height: 250),
+              TAnimationLoaderWidget(text: text, animation: animation)
+            ],
+          ),
         )
         )
         );

@@ -29,7 +29,7 @@ async {
   try
   {
     await AutenticationRepository.instance.sendEmailVerification();
-    TLoaders.successSnabar(title: 'email sent',message: 'please che');
+    TLoaders.successSnabar(title: 'email sent',message: 'please check your email');
     
   }catch(e)
   {

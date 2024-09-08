@@ -6,7 +6,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:learn_ecommerce/features/controllers/login/login_controller.dart';
 import 'package:learn_ecommerce/features/screens/password/forget_password.dart';
 import 'package:learn_ecommerce/features/screens/signup/signup.dart';
-import 'package:learn_ecommerce/navigation_menu.dart';
 import 'package:learn_ecommerce/utils/constants/sizes.dart';
 import 'package:learn_ecommerce/utils/constants/text_strings.dart';
 import 'package:learn_ecommerce/utils/validators/validation.dart';
