@@ -23,7 +23,7 @@ class LoginController extends GetxController{
   //EMail amd Password Signin
   Future<void> emailandPasswordSignIn() async {
     try {
-      //Strat Loading
+      //Start Loading
       TFullScreenLoader.openLoadingDialog('Logging you in', TImages.docerAnimation);
 
       //Check Internet Connectivity
@@ -34,8 +34,6 @@ class LoginController extends GetxController{
       TFullScreenLoader.stopLoading();
       return;
     }
-    
-    
 
     //Form validation
     if (!loginFormKey.currentState!.validate()) {
@@ -49,6 +47,8 @@ class LoginController extends GetxController{
       localStorage.write('REMEMBER_ME_PASSWORD', password.text.trim());
     }
 
+    //Login user using Email & Password Autentication
+    await AutenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
     //Remove Loader
     TFullScreenLoader.stopLoading();

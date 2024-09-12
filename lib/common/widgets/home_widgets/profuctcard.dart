@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn_ecommerce/common/styles/rounded_container.dart';
 import 'package:learn_ecommerce/common/widgets/icons/t_circular_icon.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_brandtext_icon.dart';
-import 'package:learn_ecommerce/features/screens/home.dart';
+import 'package:learn_ecommerce/common/widgets/layout/t_rounded_image.dart';
 import 'package:learn_ecommerce/features/screens/product_detail.dart';
 import 'package:learn_ecommerce/utils/constants/colors.dart';
 import 'package:learn_ecommerce/utils/constants/image_strings.dart';

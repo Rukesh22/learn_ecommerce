@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_ecommerce/features/screens/home.dart';
+import 'package:learn_ecommerce/features/screens/home/home.dart';
 import 'package:learn_ecommerce/features/screens/settings.dart';
 import 'package:learn_ecommerce/features/screens/store.dart';
 import 'package:learn_ecommerce/features/screens/wishlist.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:learn_ecommerce/common/widgets/home_widgets/appbar.dart';
 import 'package:learn_ecommerce/common/widgets/home_widgets/profuctcard.dart';
+import 'package:learn_ecommerce/common/widgets/layout/t_rounded_image.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_sectionheading.dart';
-import 'package:learn_ecommerce/features/screens/home.dart';
 import 'package:learn_ecommerce/utils/constants/image_strings.dart';
 import 'package:learn_ecommerce/utils/constants/sizes.dart';
 

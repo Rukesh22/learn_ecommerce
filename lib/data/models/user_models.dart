@@ -51,8 +51,8 @@ class UserModel {
       'LastName' : lastName,
       'Username' : username,
       'Email' : email,
-      'PhonNumber' : phoneNumber,
-      'ProfilePictute' : profilePicture,
+      'PhoneNumber' : phoneNumber,
+      'ProfilePicture' : profilePicture,
     };
   }
 
@@ -63,7 +63,7 @@ class UserModel {
     final data = document.data()!;
     return UserModel(
       id: document.id,
-      username: data['UserName'] ?? '',
+      username: data['Username'] ?? '',
       email: data['Email'] ?? '',
       firstName: data['FirstName'] ?? '',
       lastName: data['LastName'] ?? '',
@@ -71,9 +71,9 @@ class UserModel {
       profilePicture: data['ProfilePicture'] ?? '',
     );
   } 
-  return UserModel.empty();
-    // Option 2: Throw an exception to signal missing data (if preferred)
-    // throw Exception('Document data is missing for UserModel creation.');
-  
+  else {
+    return UserModel.empty();
+  }
+
 }
 }

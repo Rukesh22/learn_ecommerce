@@ -1,19 +1,19 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_ecommerce/common/widgets/home_widgets/appbar.dart';
 import 'package:learn_ecommerce/common/widgets/home_widgets/curved_edges.dart';
 import 'package:learn_ecommerce/common/widgets/home_widgets/profuctcard.dart';
 import 'package:learn_ecommerce/common/widgets/layout/gridview.dart';
+import 'package:learn_ecommerce/common/widgets/layout/t_circular_container.dart';
+import 'package:learn_ecommerce/common/widgets/layout/t_rounded_image.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_sectionheading.dart';
 import 'package:learn_ecommerce/features/controllers/homecontroller/home_controller.dart';
 import 'package:learn_ecommerce/features/screens/all_products/all_products.dart';
-import 'package:learn_ecommerce/features/screens/cart/cartScreen.dart';
+import 'package:learn_ecommerce/features/screens/home/home_appbar.dart';
 import 'package:learn_ecommerce/features/screens/subcategories/sub_categories.dart';
 import 'package:learn_ecommerce/utils/constants/colors.dart';
 import 'package:learn_ecommerce/utils/constants/image_strings.dart';
 import 'package:learn_ecommerce/utils/constants/sizes.dart';
-import 'package:learn_ecommerce/utils/constants/text_strings.dart';
 import 'package:learn_ecommerce/utils/device/device_utility.dart';
 import 'package:learn_ecommerce/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
@@ -61,57 +61,7 @@ class HomeScreen extends StatelessWidget {
                                   TColors.textWhite.withOpacity(0.1))),
                       Column(
                         children: [
-                          TAppBar(
-                            title: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(TTexts.homeAppbarTitle,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .labelMedium!
-                                        .apply(color: TColors.grey)),
-                                Text(TTexts.homeAppbarSubTitle,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .labelMedium!
-                                        .apply(color: TColors.grey)),
-                              ],
-                            ),
-                            actions: [
-                              Stack(
-                                children: [
-                                  IconButton(
-                                      onPressed: () => Get.to(const Cartscreen()),
-                                      icon: const Icon(
-                                        Iconsax.shopping_bag,
-                                        color: TColors.white,
-                                      )),
-                                  Positioned(
-                                      right: 0,
-                                      child: Container(
-                                        width: 18,
-                                        height: 18,
-                                        decoration: BoxDecoration(
-                                          color: TColors.black,
-                                          borderRadius:
-                                              BorderRadius.circular(100),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            '2',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .labelLarge!
-                                                .apply(
-                                                    color: TColors.white,
-                                                    fontSizeFactor: 0.8),
-                                          ),
-                                        ),
-                                      ))
-                                ],
-                              )
-                            ],
-                          ),
+                          const THomeAppBar(),
 
                           const SizedBox(height: TSizes.spaceBtwSections),
 
@@ -296,94 +246,6 @@ class HomeScreen extends StatelessWidget {
               ),
             )
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class TCircukarContainer extends StatelessWidget {
-  const TCircukarContainer({
-    super.key,
-    this.width = 400,
-    this.height = 400,
-    this.radius = 400,
-    this.padding = 0,
-    this.child,
-    this.margin,
-    this.backgroundColor = TColors.white,
-  });
-
-  final double? width;
-  final double? height;
-  final double radius;
-  final double padding;
-  final Widget? child;
-  final Color backgroundColor;
-  final EdgeInsets? margin;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      margin: margin,
-      padding: EdgeInsets.all(padding),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(radius),
-        color: backgroundColor,
-      ),
-    );
-  }
-}
-
-class TRoundedImage extends StatelessWidget {
-  const TRoundedImage({
-    super.key,
-    this.width,
-    this.height,
-    required this.imageUrl,
-    this.applyImageRadius = true,
-    this.border,
-    this.backgroundColor,
-    this.fit = BoxFit.contain,
-    this.padding,
-    this.isNetworkImage = false,
-    this.onPressed,
-    this.borderRadius = TSizes.md,
-  });
-
-  final double? width, height;
-  final String imageUrl;
-  final bool applyImageRadius;
-  final BoxBorder? border;
-  final Color? backgroundColor;
-  final BoxFit? fit;
-  final EdgeInsetsGeometry? padding;
-  final bool isNetworkImage;
-  final VoidCallback? onPressed;
-  final double borderRadius;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        width: width,
-        height: height,
-        padding: padding,
-        decoration: BoxDecoration(
-            border: border,
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(borderRadius)),
-        child: ClipRRect(
-          borderRadius: applyImageRadius
-              ? BorderRadius.circular(borderRadius)
-              : BorderRadius.zero,
-          child: Image(
-              fit: fit,
-              image: isNetworkImage
-                  ? NetworkImage(imageUrl)
-                  : AssetImage(imageUrl) as ImageProvider),
         ),
       ),
     );

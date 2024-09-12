@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:learn_ecommerce/common/widgets/home_widgets/appbar.dart';
+import 'package:learn_ecommerce/common/widgets/layout/t_circular_container.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_circularimage.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_curvedEdgewidget.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_sectionheading.dart';
+import 'package:learn_ecommerce/data/repositories/autentication_repository.dart';
+import 'package:learn_ecommerce/features/controllers/user/user_controller.dart';
 import 'package:learn_ecommerce/features/screens/address/address.dart';
-import 'package:learn_ecommerce/features/screens/home.dart';
 import 'package:learn_ecommerce/features/screens/order/order_screen.dart';
 import 'package:learn_ecommerce/features/screens/profile/profilescreen.dart';
 import 'package:learn_ecommerce/utils/constants/colors.dart';
@@ -18,6 +20,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -41,15 +44,15 @@ class SettingsScreen extends StatelessWidget {
                           width: 50,
                           height: 50,
                           padding: 0),
-                      title: Text('Rukesh Reddy',
+                      title: Text(controller.user.value.fullName,
                           style: Theme.of(context)
                               .textTheme
                               .headlineSmall!
                               .apply(color: TColors.white)),
-                      subtitle: Text('Rukesh Reddy',
+                      subtitle: Text(controller.user.value.email,
                           style: Theme.of(context)
                               .textTheme
-                              .headlineSmall!
+                              .bodyMedium!
                               .apply(color: TColors.white)),
                       trailing: IconButton(
                           onPressed: () => Get.to(()  => const ProfileScreen()),
@@ -127,6 +130,10 @@ class SettingsScreen extends StatelessWidget {
                       title: 'HD Image Quality',
                       subTitle: 'Set Image Quality to be seen',
                       trailing: Switch(value: false, onChanged: (value) {})),
+
+                      const SizedBox(height: TSizes.spaceBtwSections),
+                      //Logout Button
+                    SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () => AutenticationRepository.instance.logout(), child: const Text('Logout'))),
                 ],
               ),
             )

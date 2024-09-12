@@ -1,5 +1,5 @@
 /// Custom exception class to handle various Firebase authentication-related errors.
-// ignore_for_file: unreachable_switch_case
+// ignore_for_file: unreachable_switch_case, dangling_library_doc_comments
 
 class TFirebaseAuthException implements Exception {
   /// The error code associated with the exception.

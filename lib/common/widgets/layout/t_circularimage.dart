@@ -1,11 +1,18 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_ecommerce/utils/constants/colors.dart';
 import 'package:learn_ecommerce/utils/constants/sizes.dart';
 import 'package:learn_ecommerce/utils/helpers/helper_functions.dart';
+import 'package:learn_ecommerce/utils/theme/widget_themes/shimmer.dart';
 
 class TCircularImage extends StatelessWidget {
   const TCircularImage({
-    super.key, this.fit = BoxFit.cover, required this.image, this.isNetworkImage = false, this.overlayColor, this.backgroundColor,
+    super.key,
+    this.fit = BoxFit.cover, 
+    required this.image, 
+    this.isNetworkImage = false, 
+    this.overlayColor, 
+    this.backgroundColor,
     this.width = 56,
     this.height = 56,
     this.padding = TSizes.sm
@@ -27,10 +34,26 @@ class TCircularImage extends StatelessWidget {
       height: height,
       padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
-        color: THelperFunctions.isDarkMode(context) ? TColors.black : TColors.white,
+        color: backgroundColor ?? (THelperFunctions.isDarkMode(context) ? TColors.black : TColors.white),
         borderRadius: BorderRadius.circular(100)
       ),
-      child: Image(image: isNetworkImage ? NetworkImage(image) : AssetImage(image) as ImageProvider, color: overlayColor, fit: fit,)
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(100),
+        child: Center(
+          child: isNetworkImage 
+          ? CachedNetworkImage(
+            imageUrl: image,
+            fit: fit,
+            color: overlayColor,
+            progressIndicatorBuilder: (context, url, downloadProgress) => const TShimmerEffect(width: 55, height: 55),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+            ) 
+            : Image(
+              image: isNetworkImage ? NetworkImage(image) : AssetImage(image) as ImageProvider, 
+              color: overlayColor, 
+              fit: fit,) 
+        ),
+      )
       
     );
   }
