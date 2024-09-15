@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:learn_ecommerce/common/widgets/home_widgets/appbar.dart';
 import 'package:learn_ecommerce/common/widgets/home_widgets/profuctcard.dart';
 import 'package:learn_ecommerce/common/widgets/layout/gridview.dart';
+import 'package:learn_ecommerce/features/controllers/product_controller.dart';
 
 import 'package:learn_ecommerce/utils/constants/colors.dart';
 import 'package:learn_ecommerce/utils/constants/sizes.dart';
@@ -13,6 +15,7 @@ class FavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: TAppBar(
@@ -31,7 +34,7 @@ class FavouriteScreen extends StatelessWidget {
         child: Padding(padding: const EdgeInsets.all(TSizes.defaultSpace),
         child: Column(
           children: [
-            TGridLayout(itemCount: 6, itemBuilder: (_, index) => const TProductCardVertical())
+            TGridLayout(itemCount: 6, itemBuilder: (_, index) => TProductCardVertical(product: controller.featuredProducts[index]))
           ],
         ),),
       ),

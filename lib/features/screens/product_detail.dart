@@ -10,6 +10,7 @@ import 'package:learn_ecommerce/common/widgets/layout/t_circularimage.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_curvedEdgewidget.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_rounded_image.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_sectionheading.dart';
+import 'package:learn_ecommerce/data/models/product_model.dart';
 import 'package:learn_ecommerce/features/screens/product_review.dart';
 import 'package:learn_ecommerce/utils/constants/colors.dart';
 import 'package:learn_ecommerce/utils/constants/enums.dart';
@@ -21,7 +22,9 @@ import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+  const ProductDetailScreen({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {

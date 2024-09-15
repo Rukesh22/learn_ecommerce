@@ -29,5 +29,19 @@ class CategoryModel {
   }
 
   //Map Json oriented document snapshot from firebase to Usermodel
-  factory Category
+  factory CategoryModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
+    if(document.data() != null) {
+      final data = document.data()!;
+
+      //Map json record to the model
+      return CategoryModel(
+        id: document.id,
+        name: data['Name'] ?? '',
+        image: data['Image'] ?? '',
+        parentId: data['ParentId'] ?? '',
+        isFeatured: data['IsFeatured'] ?? false);
+    } else {
+      return CategoryModel.empty();
+    }
+  }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:learn_ecommerce/common/widgets/home_widgets/profuctcard.dart';
 import 'package:learn_ecommerce/common/widgets/layout/gridview.dart';
+import 'package:learn_ecommerce/features/controllers/product_controller.dart';
 import 'package:learn_ecommerce/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 class TSortableProducts extends StatelessWidget {
@@ -10,6 +12,7 @@ class TSortableProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Column(
       children: [
         //Dropdown
@@ -22,7 +25,7 @@ class TSortableProducts extends StatelessWidget {
           const SizedBox(height: TSizes.spaceBtwSections),
     
           //Products
-          TGridLayout(itemCount: 11, itemBuilder: (_, index) => const TProductCardVertical())
+          TGridLayout(itemCount: 11, itemBuilder: (_, index) => TProductCardVertical(product: controller.featuredProducts[index]))
       ],
     );
   }

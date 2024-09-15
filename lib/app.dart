@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:learn_ecommerce/bindings/general_bindings.dart';
 import 'package:learn_ecommerce/utils/constants/colors.dart';
 import 'package:learn_ecommerce/utils/constants/text_strings.dart';
+import 'package:learn_ecommerce/utils/routes/app_routes.dart';
 import 'package:learn_ecommerce/utils/theme/theme.dart';
 
 
@@ -18,6 +19,7 @@ class App extends StatelessWidget {
       darkTheme: TAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       initialBinding: GeneralBindings(),
+      getPages: AppRoutes.pages,
       home: const Scaffold(backgroundColor: TColors.primary, body: Center(child: CircularProgressIndicator(color: Colors.white)),)
     );
   }

@@ -8,6 +8,7 @@ import 'package:learn_ecommerce/common/widgets/layout/t_brandtext_icon.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_circularimage.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_searchbar.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_sectionheading.dart';
+import 'package:learn_ecommerce/features/controllers/category_controller.dart';
 import 'package:learn_ecommerce/features/screens/all_brands/all_brands.dart';
 import 'package:learn_ecommerce/utils/constants/colors.dart';
 import 'package:learn_ecommerce/utils/constants/enums.dart';
@@ -24,8 +25,9 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instamce.featureCategories;
     return DefaultTabController(
-      length: 5,
+      length: categories.length,
       child: Scaffold(
         appBar: TAppBar(
           title:
@@ -104,23 +106,14 @@ class StoreScreen extends StatelessWidget {
                   ),
 
                   //TAbs
-                  bottom: const TTabBar(tabs: [
-                    Tab(child: Text('Sports')),
-                    Tab(child: Text('Furniture')),
-                    Tab(child: Text('Electronics')),
-                    Tab(child: Text('Clothes')),
-                    Tab(child: Text('Cosmetics')),
-                  ]),
-                )
+                 bottom: TTabBar(tabs: 
+                    categories.map((category) => Tab(child: Text(category.name))).toList()),
+                  ),
+                
               ];
             },
-            body: const TabBarView(children: [
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-            ]
+            body:TabBarView(children: 
+              categories.map((category) => TCategoryTab(category: category)).toList()
             )
             ),
       ),
@@ -128,6 +121,7 @@ class StoreScreen extends StatelessWidget {
   }
 }
 
+                  
 
 class TBrandShowcase extends StatelessWidget {
   const TBrandShowcase({
