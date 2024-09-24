@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
 import 'package:learn_ecommerce/data/models/category_model.dart';
+import 'package:learn_ecommerce/data/models/product_model.dart';
 import 'package:learn_ecommerce/data/repositories/category_repository.dart';
+import 'package:learn_ecommerce/data/repositories/product_repository.dart';
 import 'package:learn_ecommerce/utils/helpers/t_loader.dart';
 
-class CategoryController extends GetxController{
-  static CategoryController get instamce => Get.find();
+class CategoryController extends GetxController {
+  static CategoryController get instance => Get.find();
 
   final isLoading = false.obs;
   final _categoryRepository = Get.put(CategoryRepository());
@@ -30,16 +32,24 @@ class CategoryController extends GetxController{
       allCategories.assignAll(categories);
 
       //Filter Featured categories
-      featureCategories.assignAll(allCategories.where((category) => category.isFeatured && category.parentId.isEmpty).take(8).toList());
-
+      featureCategories.assignAll(allCategories
+          .where((category) => category.isFeatured && category.parentId.isEmpty)
+          .take(8)
+          .toList());
     } catch (e) {
-
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
-      
     } finally {
       //remove loader
       isLoading.value = false;
-
     }
+  }
+
+  //Load selected data
+
+  //Get category or sub category products
+  Future<List<ProductModel>> getCategoryProducts({required String categoryId, int limit = 4}) async {
+    //fetch limited (4) products against each subcategory
+    final products = await ProductRepository.instance.getProductsForCategory(categoryId: categoryId, limit: limit);
+    return products;
   }
 }

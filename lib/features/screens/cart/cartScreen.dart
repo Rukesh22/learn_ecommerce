@@ -2,12 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:learn_ecommerce/common/widgets/home_widgets/appbar.dart';
-import 'package:learn_ecommerce/common/widgets/home_widgets/profuctcard.dart';
+
 import 'package:learn_ecommerce/common/widgets/icons/t_circular_icon.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_brandtext_icon.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_rounded_image.dart';
 import 'package:learn_ecommerce/features/screens/cart/widgets/cart_items.dart';
 import 'package:learn_ecommerce/features/screens/checkout/checkout.dart';
+import 'package:learn_ecommerce/features/screens/products/product_cards/profuctcard_vertical.dart';
 import 'package:learn_ecommerce/utils/constants/colors.dart';
 import 'package:learn_ecommerce/utils/constants/image_strings.dart';
 import 'package:learn_ecommerce/utils/constants/sizes.dart';

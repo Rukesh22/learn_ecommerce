@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_ecommerce/features/screens/cart/cartScreen.dart';
-import 'package:learn_ecommerce/features/screens/product_detail.dart';
+import 'package:learn_ecommerce/features/screens/products/product_detail.dart';
 import 'package:learn_ecommerce/utils/constants/sizes.dart';
 
 class TCartItems extends StatelessWidget {

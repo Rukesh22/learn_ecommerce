@@ -1,12 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_ecommerce/common/widgets/home_widgets/curved_edges.dart';
-import 'package:learn_ecommerce/common/widgets/home_widgets/profuctcard.dart';
+import 'package:learn_ecommerce/features/screens/products/product_cards/profuctcard_vertical.dart';
 import 'package:learn_ecommerce/common/widgets/home_widgets/vertical_product_shimmer.dart';
 import 'package:learn_ecommerce/common/widgets/layout/gridview.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_circular_container.dart';
 import 'package:learn_ecommerce/common/widgets/layout/t_sectionheading.dart';
 import 'package:learn_ecommerce/features/controllers/homecontroller/home_controller.dart';
-import 'package:learn_ecommerce/features/controllers/product_controller.dart';
+import 'package:learn_ecommerce/features/controllers/product/product_controller.dart';
 import 'package:learn_ecommerce/features/screens/all_products/all_products.dart';
 import 'package:learn_ecommerce/features/screens/home/home_appbar.dart';
 import 'package:learn_ecommerce/features/screens/home/home_categories.dart';
@@ -156,7 +157,11 @@ class HomeScreen extends StatelessWidget {
                   //Heading
                   TSectionHeading(
                       title: 'Popular Products',
-                      onPressed: () => Get.to(() => const AllProducts())),
+                      onPressed: () => Get.to(() => AllProducts(
+                        title: 'Popular Products',
+                        query: FirebaseFirestore.instance.collection('Products').where('IsFeatured', isEqualTo: true).limit(6),
+                        futureMethod: controller.fetchAllFeaturedProducts()))
+                        ),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
                   //Popular Products

@@ -7,12 +7,12 @@ import 'package:learn_ecommerce/features/screens/login/login.dart';
 import 'package:learn_ecommerce/features/screens/onboarding.dart';
 import 'package:learn_ecommerce/features/screens/order/order_screen.dart';
 import 'package:learn_ecommerce/features/screens/password/forget_password.dart';
-import 'package:learn_ecommerce/features/screens/product_review.dart';
+import 'package:learn_ecommerce/features/screens/products/product_review.dart';
 import 'package:learn_ecommerce/features/screens/profile/profilescreen.dart';
 import 'package:learn_ecommerce/features/screens/settings.dart';
 import 'package:learn_ecommerce/features/screens/signup/signup.dart';
 import 'package:learn_ecommerce/features/screens/signup/verify_email.dart';
-import 'package:learn_ecommerce/features/screens/store.dart';
+import 'package:learn_ecommerce/features/screens/store/store.dart';
 import 'package:learn_ecommerce/features/screens/wishlist.dart';
 import 'package:learn_ecommerce/utils/routes/routes.dart';
 

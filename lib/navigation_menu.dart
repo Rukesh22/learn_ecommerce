@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_ecommerce/features/screens/home/home.dart';
 import 'package:learn_ecommerce/features/screens/settings.dart';
-import 'package:learn_ecommerce/features/screens/store.dart';
+import 'package:learn_ecommerce/features/screens/store/store.dart';
 import 'package:learn_ecommerce/features/screens/wishlist.dart';
 import 'package:learn_ecommerce/utils/constants/colors.dart';
 import 'package:learn_ecommerce/utils/helpers/helper_functions.dart';

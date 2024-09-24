@@ -5,7 +5,7 @@ import 'package:learn_ecommerce/common/widgets/home_widgets/category_shimmer.dar
 import 'package:learn_ecommerce/common/widgets/layout/tvertical_image_text.dart';
 import 'package:learn_ecommerce/features/screens/subcategories/sub_categories.dart';
 
-import '../../controllers/category_controller.dart';
+import '../../controllers/product/category_controller.dart';
 
 class THomeCategories extends StatelessWidget {
   const THomeCategories({

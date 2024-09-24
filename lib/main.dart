@@ -7,6 +7,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:learn_ecommerce/data/repositories/autentication_repository.dart';
 import 'firebase_options.dart';
 
+
 Future<void> main() async {
   //  Add Widgets Binding
 final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -22,13 +23,8 @@ final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   );
 
   
-
-
-
-  
-
-
   runApp(const App());
+  
 
 
 }

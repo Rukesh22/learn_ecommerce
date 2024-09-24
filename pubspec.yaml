@@ -55,15 +55,16 @@ dependencies:
   carousel_slider: ^5.0.0
   flutter_rating_bar: ^4.0.1
   connectivity_plus: ^6.0.5
-  firebase_core: ^3.4.1
+  firebase_core: ^3.5.0
   lottie: ^3.1.2
-  firebase_auth: ^5.2.1
-  cloud_firestore: ^5.4.1
+  firebase_auth: ^5.3.0
+  
   google_sign_in: ^6.2.1
   shimmer: ^3.0.0
   image_picker: ^1.1.2
   firebase_storage: ^12.3.0
   cached_network_image: ^3.4.1
+  cloud_firestore: ^5.4.2
 
 
 

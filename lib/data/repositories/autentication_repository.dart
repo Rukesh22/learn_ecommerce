@@ -14,6 +14,7 @@ import 'package:learn_ecommerce/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:learn_ecommerce/utils/exceptions/firebase_exceptions.dart';
 import 'package:learn_ecommerce/utils/exceptions/format_exceptions.dart';
 import 'package:learn_ecommerce/utils/exceptions/platform_exceptions.dart';
+import 'package:learn_ecommerce/utils/local_storage/storage_utility.dart';
 
 class AutenticationRepository extends GetxController {
   static AutenticationRepository get instance => Get.find();
@@ -37,8 +38,14 @@ class AutenticationRepository extends GetxController {
   //Function to determine relevant screen and redirect accordingly
   void screenRedirect() async {
     final user = _auth.currentUser;
+
     if (user != null) {
+
       if (user.emailVerified) {
+
+        //initialize the specific storage
+        await TLocalStorage.init(user.uid);
+        
         Get.offAll(() => const NavigationMenu());
       } else {
         Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email));
